@@ -8,7 +8,7 @@ Humblr. _Get Humbld_
 
 ## Devos
 
-Before you start working on the actual code in this directory, please update the [Save Point](https:/github.com/puneetjohal/Idian-Tech-Support/Save%20Point) folder
+Before you start working on the actual code in this directory, please update the [Save Point](https://github.com/puneetjohal/Indian-Tech-Support/tree/master/Save%20Point) folder
 to the latest version so it always stay one commit behind. This helps to compare the two folders and get the developer's log as detailed as possible!
 
 ---

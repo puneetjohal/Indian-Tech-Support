@@ -17,4 +17,4 @@ to the latest version so it always stay one commit behind. This helps to compare
 
 Copy the code currently here into the "Save Point" folder so it stays one commit behind.
 
-```cp -r ../Current\ Version/* ./```
+```cp -r ../Current\ Version/* ./Save\ Point/```

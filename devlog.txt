@@ -12,3 +12,6 @@ Add devlog.
 
 ShafaliG -- 2018-10-12 20:50
 Added art.
+
+PuneetJ -- 2018-10-16 07:20
+Added design doc.

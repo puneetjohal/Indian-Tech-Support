@@ -58,5 +58,5 @@ Added landing page template.
 
 fristL -- TIMESTAMP
 --------------------------------------------------------------
-<Thing fristL did.>
+<Thing fristL did.> //Leave this at the end of the devlog
 ==============================================================

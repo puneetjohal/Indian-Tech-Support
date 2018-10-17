@@ -28,4 +28,5 @@ This reminded me of the importance of making sure you have a version saved that 
     - Have the code before you started working on it saved somewhere.
     
 PuneetJ -- 2018-10-17 7:28
-Updated Read Me to include prioritized todo list and deadlines and removed those from the design doc. Updated design doc to remove anything about aesthetic customization, and added a clearer explanation of the use of each table in our database.
+Updated Read Me to include prioritized todo list and deadlines and removed those from the design doc. Updated design doc to remove
+anything about aesthetic customization, and added a clearer explanation of the use of each table in our database.

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block content %}
+      {% set msgs = get_flashed_messages() %}
+      {% for each in msgs %}
+      {# Checks if an error exists and displays an error if it does #}
+      {% if each %}
+        <strong> Uh oh there was an error, you typed in a {{each}}
+	    {% endif %}
+      {% endfor %}
+
+    <form action="/auth" method="POST">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" name="sub1">
+    </form>
+{% endblock %}

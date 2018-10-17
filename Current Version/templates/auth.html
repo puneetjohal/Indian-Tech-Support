@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{# Sets the title to Welcome Page #}
+{% block title %}
+Welcome Page
+{% endblock %}
+
+{% block content %}
+    <!-- Displays the user in the session -->
+    <h3>Current user is: {{username}}</h3>
+    <form action="/logout">
+      <input type="submit" value="Logout">
+    </form>
+{% endblock %}

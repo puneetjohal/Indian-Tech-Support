@@ -15,3 +15,14 @@ Added art.
 
 PuneetJ -- 2018-10-16 07:20
 Added design doc.
+
+ShafaliG -- 2018-10-16 20:40
+  I really agreed with the article. The first part where it was talking about how code makes sense when one person writes
+it but when multiple people jumble up what they have, it can get very confusing. It is important to use variable names that
+make sense. The second part talking about how there are often hidden things in code, especially when there are multiple coders
+working on it, reminded me about the importance of commenting. The last part talked about how code works until it doesn't.
+This reminded me of the importance of making sure you have a version saved that is still working.
+  ACTIONS:
+    - Add comments that explain what the code is doing
+    - Use useful variable names
+    - Have the code before you started working on it saved somewhere. 

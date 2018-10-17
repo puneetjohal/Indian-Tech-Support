@@ -1,3 +1,12 @@
+Indian-Tech-Support
+Adil Gondal
+Shafali Gupta
+Ahnaf Hasan
+Puneet Johal (PM)
+pd 7
+---------------------
+Web Log Hosting Site
+
  ______   ______   __   __   __       ______   _______
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
 \:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
@@ -6,17 +15,25 @@
    \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 AhnafH -- 2018-10-12 19:18
+--------------------------------------------------------------
 Add devlog.
+==============================================================
 
 ShafaliG -- 2018-10-12 20:50
+--------------------------------------------------------------
 Added art.
+==============================================================
 
 PuneetJ -- 2018-10-16 07:20
+--------------------------------------------------------------
 Added design doc.
+==============================================================
 
 ShafaliG -- 2018-10-16 20:40
+--------------------------------------------------------------
   I really agreed with the article. The first part where it was talking about how code makes sense when one person writes
 it but when multiple people jumble up what they have, it can get very confusing. It is important to use variable names that
 make sense. The second part talking about how there are often hidden things in code, especially when there are multiple coders
@@ -26,7 +43,20 @@ This reminded me of the importance of making sure you have a version saved that 
     - Add comments that explain what the code is doing
     - Use useful variable names
     - Have the code before you started working on it saved somewhere.
+==============================================================
     
 PuneetJ -- 2018-10-17 7:28
+--------------------------------------------------------------
 Updated Read Me to include prioritized todo list and deadlines and removed those from the design doc. Updated design doc to remove
 anything about aesthetic customization, and added a clearer explanation of the use of each table in our database.
+==============================================================
+
+ShafaliG -- 2018-10-17 12:57
+--------------------------------------------------------------
+Added landing page template.
+==============================================================
+
+fristL -- TIMESTAMP
+--------------------------------------------------------------
+<Thing fristL did.> //Leave this at the end of the devlog
+==============================================================

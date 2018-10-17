@@ -1,24 +1,21 @@
 # Indian-Tech-Support
 
 ## Prioritized To-do List
-- [ ] Landing page
-- [ ] Template for subtopic pages
-- [ ] Template for login / account options pages
-- [ ] Nav bar that connects the different pages back to the landing page
-- [ ] Account creation and integration of login requirements to be able to edit
-- [ ] Giving viewers the ability to edit pages and their tags
-- [ ] Searching feature
-- [ ] Giving users the ability to make new pages
+- [ ] Build a default landing page for users that are not logged in
+- [ ] Create templates
+- [ ] Add account functionality
+- [ ] Make the landing page for users that are logged in their personal blog
+- [ ] Create navbar with links to landing page and login page
+- [ ] Create a way to write new posts
+- [ ] Create a way to edit existing posts on your page
+- [ ] Add search functionality (based on username)
+- [ ] Add view-only functionality for blog pages besides one's own
 #### Xtra
-- [ ] Issue submission
-- [ ] Rating users or posts
-- [ ] Meta administrator privileges
-- [ ] Banning users
-- [ ] Reset password option
-- [ ] Change log for pages
-- [ ] Linking to different subtopics within subtopics
-- [ ] Tiered accounts
-- [ ] Random page
+- [ ] Tags on blogs
+- [ ] Changing search to search by blog tag instead of search by username
+- [ ] Rating posts (like/dislike style)
+- [ ] Flagging posts
+- [ ] Moderator accounts with ability to take down flagged posts ban users for a certain amount of time
 
 ## Deadlines
-- 10/11: Planning
+- 10/16: Design doc

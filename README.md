@@ -15,7 +15,8 @@
 - [ ] Changing search to search by blog tag instead of search by username
 - [ ] Rating posts (like/dislike style)
 - [ ] Flagging posts
-- [ ] Moderator accounts with ability to take down flagged posts ban users for a certain amount of time
+- [ ] Moderator accounts with ability to take down flagged posts and ban users for a certain amount of time
+- [ ] Tagging individual posts and having search results display each of those posts with a link to the original blog
 
 ## Deadlines
 - 10/16: Design doc

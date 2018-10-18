@@ -56,6 +56,11 @@ ShafaliG -- 2018-10-17 12:57
 Added landing page template.
 ==============================================================
 
+AhnafH -- 2018-10-18 1:21
+--------------------------------------------------------------
+Worked on SQLite in app.py for registration and account verification.
+==============================================================
+
 fristL -- TIMESTAMP
 --------------------------------------------------------------
 <Thing fristL did.> //Leave this at the end of the devlog

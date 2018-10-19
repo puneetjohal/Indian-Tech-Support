@@ -13,7 +13,7 @@ to the latest version so it always stay one commit behind. This helps to compare
 
 ---
 
-## Before You Edit
+## Before You Push
 
 Copy the code currently here into the "Save Point" folder so it stays one commit behind.
 

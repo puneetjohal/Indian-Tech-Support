@@ -71,6 +71,12 @@ old authentication method that used a WHILE loop to use instead a FOR for cleane
 Added gitignore for VSCode folders. Updated README.md with new instructions. Added util folder for future use.
 ==============================================================
 
+
+PuneetJ -- 2018-10-19 1:16
+--------------------------------------------------------------
+Got rid of style tags in landing page html.
+==============================================================
+
 fristL -- TIMESTAMP
 --------------------------------------------------------------
 <Thing fristL did.> //Leave this at the end of the devlog

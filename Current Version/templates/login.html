@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Login Page
+Login to Humblr
 {% endblock %}
 
 {% block content %}
@@ -9,13 +9,13 @@ Login Page
       {% for each in msgs %}
       {# Checks if an error exists and displays an error if it does #}
       {% if each %}
-        <strong> Uh oh there was an error, you typed in a {{each}}
+        <strong>{{each}}
 	    {% endif %}
       {% endfor %}
 <form action="/auth" method="POST">
   <input type="text" name="username" placeholder="Username">
   <input type="password" name="password" placeholder="Password"><br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Login">
 </form>
   <!-- <form action="/auth" method="POST">
       <input type="text" name="username" placeholder="Username">
@@ -23,3 +23,6 @@ Login Page
       <input type="submit" name="sub1">
     </form>--> 
 {% endblock %}
+{% block footer %}
+Humblr 2018&copy;
+{% endblock footer %}

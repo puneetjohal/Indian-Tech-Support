@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login to Humblr
+{% endblock %}
+
+{% block content %}
+      {% set msgs = get_flashed_messages() %}
+      {% for each in msgs %}
+      {# Checks if an error exists and displays an error if it does #}
+      {% if each %}
+        <strong>{{each}}
+	    {% endif %}
+      {% endfor %}
+<form action="/auth" method="POST">
+  <input type="text" name="username" placeholder="Username">
+  <input type="password" name="password" placeholder="Password"><br><br>
+  <input type="submit" value="Login">
+</form>
+  <!-- <form action="/auth" method="POST">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" name="sub1">
+    </form>--> 
+{% endblock %}
+{% block footer %}
+Humblr 2018&copy;
+{% endblock footer %}

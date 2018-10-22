@@ -63,7 +63,9 @@ def authenticate():
     c.execute("SELECT * FROM logins")
     usrs = c.fetchall() #logins now is check iteratively by FOR instead of WHILE
     for item in usrs:
-        if request.form.get('username') == item[0] and request.form.get('password') == item[1]: #given credencials are in table
+        if request.form.get('username') == item[0] and request.form.get('password') == item[1]:
+            request.cookies[request.form.get('username')]
+            request.cookies[request.form.get('password')]
             session['user'] = item[0]
             return redirect(url_for('blogHome'))
     print("Nothing")
@@ -74,7 +76,13 @@ def authenticate():
 @app.route("/home")
 def blogHome():
     #substitute until we get blog homepage working
-    return render_template("login.html", title = "SUCCESS", content = "YAT", footer = "YAT")
+    #db = sqlite3.connect()
+    #c = db.cursor()
+    #c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT)")
+    #c.execute("SELECT * FROM blogs WHERE users = {}".format())
+    #user_blogs = c.fetchall()
+
+    return render_template("blog_home.html", title =request.cookies.get('username'), content = "YAT", footer = "YAT")
 
 
 

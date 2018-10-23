@@ -18,13 +18,7 @@ pip install wheel
 pip install flask
 ```
 ### Running The Program
-* Clone our project repo using:
-```
-git clone https://github.com/puneetjohal/Indian-Tech-Support.git
-```
-* Go into our project repo and run it using:
-```
-python app.py
-```
+* Clone our project repo using:```git clone https://github.com/puneetjohal/Indian-Tech-Support.git```
+* Go into our project repo and run it using:```python app.py```
 * Open a browser and see the website at: http://127.0.0.1:5000/
-* Once you're finished, disable your virtual environment using:'''deactivate'''
+* Once you're finished, disable your virtual environment using:```deactivate```

@@ -13,7 +13,7 @@ We've created a web log hosting site. Users will register for the site which wil
 * Go to the directory containing your virtual environemnt and activate it using: ```source name/bin/activate``` 
 ### Flask
 * Once your virtual environment is activated you can download flask using:
-'''
+```
 pip install wheel
 pip install flask
 ```

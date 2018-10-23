@@ -1,5 +1,9 @@
 # Indian-Tech-Support
 
+# Modules needed and how to install them
+- pip ([Windows](https://pip.pypa.io/en/stable/installing/)) ([Mac](https://ahmadawais.com/install-pip-macos-os-x-python/))
+- flask and virtual environment are both shown how to download [here](http://flask.pocoo.org/docs/1.0/installation/)
+
 ## Prioritized To-do List
 - [ ] Build a default landing page for users that are not logged in
 - [ ] Create templates

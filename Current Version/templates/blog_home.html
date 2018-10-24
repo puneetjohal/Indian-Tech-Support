@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    {% set msg = get_flashed_messages() %}
+    {% for each in msg %}
+        {% if each %}
+            {{ each }}
+        {% endif %}
+    {% endfor %}
+</head>
+<body>
+    <table>
+        <br>
+    {% for item in content %}
+        {% if item %}
+            <td>{{ item[0] }}<br>{{ item[1] }}</td>
+        {% endif %}
+    {% endfor %}
+    </table>
+    <form action="/make-blog">
+        <input type="submit" value="Make Blog">
+    </form>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from flask import Flask,render_template,session,request,url_for,redirect,flash
-import os, sqlite3, csv
+import os, sqlite3, csv, time
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
@@ -63,7 +63,9 @@ def authenticate():
     c.execute("SELECT * FROM logins")
     usrs = c.fetchall() #logins now is check iteratively by FOR instead of WHILE
     for item in usrs:
-        if request.form.get('username') == item[0] and request.form.get('password') == item[1]: #given credencials are in table
+        if request.form.get('username') == item[0] and request.form.get('password') == item[1]:
+            #request.cookies[request.form.get('username')]
+            #request.cookies[request.form.get('password')]
             session['user'] = item[0]
             return redirect(url_for('blogHome'))
     print("Nothing")
@@ -74,11 +76,33 @@ def authenticate():
 @app.route("/home")
 def blogHome():
     #substitute until we get blog homepage working
-    return render_template("login.html", title = "SUCCESS", content = "YAT", footer = "YAT")
+    db = sqlite3.connect(DATABASE)
+    c = db.cursor()
+    c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT)")
+    #c.execute("INSERT INTO blogs VALUES(\"username\",\"asdasdasdasd\")")
+    c.execute("SELECT * FROM blogs WHERE users = {}".format('''"''' + session.get('user') + '''"'''))
+    user_blogs = c.fetchall()
+    db.commit()
+    db.close()
+    return render_template("blog_home.html", title = session.get('user'), content = user_blogs, footer = "YAT")
 
+@app.route('/make-blog')
+def new_blog_page():
+    return render_template("new-blog.html")
 
-
-
+@app.route('/blog-create')
+def create_blog():
+    db = sqlite3.connect(DATABASE)
+    c = db.cursor()
+    usr = session.get('user')
+    content = request.form.get('content')
+    print(content)
+    print(request.form.get("content"))
+    c.execute("INSERT INTO blogs VALUES(\"{}\",\"{}\")".format(usr, content))
+    db.commit()
+    db.close()
+    flash("Congratulations, you have made a new blog!\n")
+    return redirect(url_for('blogHome'))
 
 
 

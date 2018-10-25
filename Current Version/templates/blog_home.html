@@ -4,24 +4,35 @@
 <html>
 <head>
     <title>{{ title }}</title>
+    <form action="/make-blog">
+        <input type="submit" value="Make Blog">
+    </form>
+        <div align="right">
+    <form action="/logout">
+        <input type="submit" value="Logout">
+    </form>
+    </div>
+    <div align="center">
     {% set msg = get_flashed_messages() %}
     {% for each in msg %}
         {% if each %}
-            {{ each }}
+            <strong>{{ each }}</strong>
         {% endif %}
     {% endfor %}
+    </div>
 </head>
 <body>
+    <div align="center">
     <table>
         <br>
     {% for item in content %}
         {% if item %}
-            <td>{{ item[0] }}<br>{{ item[1] }}</td>
+            <tr>{{ item[0] }}   {{ item[2] }}<br>
+                {{ item[1] }}</tr><br>
+                -------------------<br><br>
         {% endif %}
     {% endfor %}
     </table>
-    <form action="/make-blog">
-        <input type="submit" value="Make Blog">
-    </form>
+    </div>
 </body>
 </html>

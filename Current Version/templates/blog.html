@@ -3,14 +3,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{% block title %}{% endblock %}</title>
+  <title>{{ title }}<title>
+
+  <form>
+      <input type="search" placeholder="Search">
+  </form>
+
+  <form action="/new-post">
+      <input type="submit" value=" Create New Post">
+  </form>
+
+  <form action="/logout">
+    <input type="submit" value="Logout">
+  </form>
+
+  <div align="center">
+  {% set msg = get_flashed_messages() %}
+  {% for each in msg %}
+      {% if each %}
+          <strong>{{ each }}</strong>
+      {% endif %}
+  {% endfor %}
+  </div>
+
 </head>
 <body>
-  {% block content %}
-  {% endblock %}
-
-  {% block footer %}
-    <br> {# wrong copyright and credits #}
-  {% endblock %}
+  <h3> "by"{{ user }} </h3>
+  <div align="center">
+  <table>
+      <br>
+  {% for item in content %}
+      {% if item %}
+          <tr>{{ item[0] }}   {{ item[2] }}<br>
+              {{ item[1] }}</tr><br>
+              -------------------<br><br>
+      {% endif %}
+  {% endfor %}
+  </table>
+  </div>
 </body>
 </html>

@@ -5,24 +5,29 @@ Login to Humblr
 {% endblock %}
 
 {% block content %}
+      <div align="center">
       {% set msgs = get_flashed_messages() %}
       {% for each in msgs %}
       {# Checks if an error exists and displays an error if it does #}
       {% if each %}
-        <strong>{{each}}
+        <strong>{{each}}</strong>
 	    {% endif %}
       {% endfor %}
-<form action="/auth" method="POST">
-  <input type="text" name="username" placeholder="Username">
-  <input type="password" name="password" placeholder="Password"><br><br>
-  <input type="submit" value="Login">
-</form>
-  <!-- <form action="/auth" method="POST">
-      <input type="text" name="username" placeholder="Username">
-      <input type="password" name="password" placeholder="Password">
-      <input type="submit" name="sub1">
-    </form>--> 
+      <br><br>
+      <form action="/auth" method="POST">
+          <input type="text" name="username" placeholder="Username">
+          <input type="password" name="password" placeholder="Password"><br><br>
+      <table>
+        <td>
+          <input type="submit" value="Login">
+        </form></td>
+        <td><form action="/">
+          <input type="submit" value="Go back">
+        </form></td>
+      </table><br><br>
+      </div>
 {% endblock %}
+
 {% block footer %}
 Humblr 2018&copy;
 {% endblock footer %}

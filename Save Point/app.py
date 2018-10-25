@@ -16,9 +16,9 @@ def home():
 @app.route("/logout")
 def logout():
     #removes the user from the session
-    session.pop("user")
+    session.pop('user')
     #redirects to the home page after logging user out
-    return redirect(url_for('/'))
+    return redirect(url_for('home'))
 
 @app.route('/login')
 def log():
@@ -78,7 +78,7 @@ def blogHome():
     #substitute until we get blog homepage working
     db = sqlite3.connect(DATABASE)
     c = db.cursor()
-    c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT, time_of_blog TEXT)")
     #c.execute("INSERT INTO blogs VALUES(\"username\",\"asdasdasdasd\")")
     c.execute("SELECT * FROM blogs WHERE users = {}".format('''"''' + session.get('user') + '''"'''))
     user_blogs = c.fetchall()
@@ -95,10 +95,10 @@ def create_blog():
     db = sqlite3.connect(DATABASE)
     c = db.cursor()
     usr = session.get('user')
-    content = request.form.get('content')
+    content = request.args.get('content')
+    blogTime = time.asctime(time.localtime())
     print(content)
-    print(request.form.get("content"))
-    c.execute("INSERT INTO blogs VALUES(\"{}\",\"{}\")".format(usr, content))
+    c.execute("INSERT INTO blogs VALUES(\"{}\",\"{}\", \"{}\")".format(usr, content, blogTime))
     db.commit()
     db.close()
     flash("Congratulations, you have made a new blog!\n")

@@ -9,15 +9,28 @@ Register on Humblr
     {% for each in msgs %}
     {# Checks if an error exists and displays an error if it does #}
     {% if each %}
+        <div align="center">
         <strong>{{each}}</strong>
+        </div>
 	    {% endif %}
     {% endfor %}
-<form action="/register-auth" method="POST">
-  <input type="text" name="username" placeholder="Username"><br>
-  <input type="password" name="password" placeholder="Password"><br>
-  <input type="password" name="confirm" placeholder="Retype your password"><br><br>
-  <input type="submit" value="Register">
-</form>
+    <div align="center">
+        <form action="/register-auth" method="POST">
+            <input type="text" name="username" placeholder="Username"><br>
+            <input type="password" name="password" placeholder="Password"><br>
+            <input type="password" name="confirm" placeholder="Retype your password"><br><br>
+            <table>
+                <td>
+                <input type="submit" value="Register"></form>
+                </td>
+                <td>
+                <form action="/">
+                    <input type="submit" value="Go Back">
+                </form>
+                </td>
+            </table>
+            
+    </div>
 {% endblock content %}
 {% block footer %}
 Humblr 2018&copy;

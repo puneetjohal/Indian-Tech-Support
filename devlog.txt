@@ -111,6 +111,12 @@ PuneetJ -- 2018-10-24 12:46
 Added days unaccounted for to devlog, started blog template.
 ==============================================================
 
+AhnafH -- 2018-10-23 21:38
+--------------------------------------------------------------
+Fix blog content not showing up as 'None'. Add time module (used in blog posts). Add aesthetic fixes such as centering 
+and placements through the <div> tag. Add logout button.
+==============================================================
+
 fristL -- TIMESTAMP
 --------------------------------------------------------------
 <Thing fristL did.> //Leave this at the end of the devlog

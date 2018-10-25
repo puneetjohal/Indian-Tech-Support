@@ -111,10 +111,15 @@ PuneetJ -- 2018-10-24 12:46
 Added days unaccounted for to devlog, started blog template.
 ==============================================================
 
-AhnafH -- 2018-10-23 21:38
+AhnafH -- 2018-10-24 21:38
 --------------------------------------------------------------
 Fix blog content not showing up as 'None'. Add time module (used in blog posts). Add aesthetic fixes such as centering 
 and placements through the <div> tag. Add logout button.
+==============================================================
+
+PuneetJ -- 2018-10-25 1:16
+--------------------------------------------------------------
+Added blog template to be used for blogs owned by user.
 ==============================================================
 
 fristL -- TIMESTAMP

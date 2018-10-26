@@ -104,6 +104,12 @@ def create_blog():
     flash("Congratulations, you have made a new blog!\n")
     return redirect(url_for('blogHome'))
 
+@app.route('/make-post')
+def make_post():
+    return render_template("new-post.html")
+
+@app.route('/new-post')
+def create_post():
 
 
 

@@ -122,6 +122,11 @@ PuneetJ -- 2018-10-25 1:16
 Added blog template to be used for blogs owned by user.
 ==============================================================
 
+PuneetJ -- 2018-10-26 7:11
+--------------------------------------------------------------
+Added template for blogs of other users, added template for new post submition, started post creation.
+==============================================================
+
 fristL -- TIMESTAMP
 --------------------------------------------------------------
 <Thing fristL did.> //Leave this at the end of the devlog

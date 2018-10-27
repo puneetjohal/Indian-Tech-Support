@@ -1,5 +1,6 @@
 from flask import Flask,render_template,session,request,url_for,redirect,flash
 import os, sqlite3, csv, time
+from random import choice
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
@@ -9,10 +10,23 @@ DATABASE = "./Big_Daddy.db"
 def home():
     if 'user' in session: #sessioning
         return redirect(url_for('blogHome'))
+    db = sqlite3.connect(DATABASE)
+    c = db.cursor()
+    featured = []
+    try:
+        c.execute("SELECT * FROM blogs")
+        featured = c.fetchall()
+        if len(featured) > 0:
+            featured = choice(featured)
+    except Exception as e:
+        print("table doesn't exist")
+        featured = ""
     return render_template("LandingTemplate.html",
                             Title = "Humblr",
                             heading = "Welcome to Humblr",
-                            desc = "Get Humbled")
+                            desc = "Get Humbled",
+                            randPost = featured)
+
 @app.route("/logout")
 def logout():
     #removes the user from the session
@@ -78,13 +92,17 @@ def blogHome():
     #substitute until we get blog homepage working
     db = sqlite3.connect(DATABASE)
     c = db.cursor()
-    c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT, time_of_blog TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT, time_of_blog TEXT, tags TEXT)")
     #c.execute("INSERT INTO blogs VALUES(\"username\",\"asdasdasdasd\")")
     c.execute("SELECT * FROM blogs WHERE users = {}".format('''"''' + session.get('user') + '''"'''))
     user_blogs = c.fetchall()
+    ordered_blogs = []
+    for i in range(len(user_blogs) - 1, -1, -1):
+        ordered_blogs.append(user_blogs[i])
+    user_blogs = ordered_blogs
     db.commit()
     db.close()
-    return render_template("blog_home.html", title = session.get('user'), content = user_blogs, footer = "YAT")
+    return render_template("blog_home.html", title = session.get('user'), content = user_blogs, user = session.get('user'))
 
 @app.route('/make-blog')
 def new_blog_page():
@@ -95,10 +113,12 @@ def create_blog():
     db = sqlite3.connect(DATABASE)
     c = db.cursor()
     usr = session.get('user')
+    tags = request.args.get('tags')
     content = request.args.get('content')
     blogTime = time.asctime(time.localtime())
+    tags = usr + "," + tags
     print(content)
-    c.execute("INSERT INTO blogs VALUES(\"{}\",\"{}\", \"{}\")".format(usr, content, blogTime))
+    c.execute("INSERT INTO blogs VALUES(\"{}\",\"{}\", \"{}\",\"{}\")".format(usr, content, blogTime, tags))
     db.commit()
     db.close()
     flash("Congratulations, you have made a new blog!\n")
@@ -112,6 +132,60 @@ def make_post():
 def create_post():
     return redirect(url_for('blogHome'))
 
+@app.route('/search')
+def search():
+    if 'user' not in session:
+        return redirect(url_for('home'))
+    db =sqlite3.connect(DATABASE)
+    c = db.cursor()
+    search_content = request.args.get('search')
+    tags = search_content.split(",")
+    c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT, time_of_blog TEXT, tags TEXT)")
+    c.execute("SELECT * FROM blogs")
+    all_tags = c.fetchall()
+    correct_tags = []
+    for blog in all_tags:
+        for tag in tags:
+            if tag in blog[3]:
+                correct_tags.append(blog)
+    print(correct_tags)
+    if len(correct_tags) < 0:
+        flash("Internal Sever Error")
+    if len(correct_tags) == 0:
+        flash("No posts found :(")
+    return render_template('blog_home.html', content = correct_tags, user = session.get('user'))
+
+@app.route('/edit')
+def update():
+    if 'user' not in session:
+        return redirect(url_for('home'))
+    #print(request.args.get('content'))
+    content = request.args.get('content')
+    OGtime = request.args.get('time')
+    #print(OGtime)
+    return render_template('edit_blog.html', content = content, post = OGtime)
+
+@app.route('/edit-auth')
+def edit():
+    if 'user' not in session:
+        return redirect(url_for('home'))
+    db = sqlite3.connect(DATABASE)
+    c = db.cursor()
+    content = request.args.get('content')
+    searched_for_time = request.args.get('time')
+    #print(request.args.get('content'))
+    #print(searched_for_time)
+    c.execute("SELECT * FROM blogs WHERE time_of_blog=\"{}\"".format(searched_for_time))
+    #test = c.fetchall()
+    #print("this is the whole thing\n")
+    #print(test)
+    #print(time.asctime(time.localtime()))
+    c.execute("UPDATE blogs SET content =\"{}\", time_of_blog =\"{}\" WHERE time_of_blog=\"{}\"".format(content, time.asctime(time.localtime()), searched_for_time))
+    #print(searched_for_time)
+    db.commit()
+    db.close()
+    flash("Everything's looking good! Blog has been updated!")
+    return redirect(url_for('blogHome'))
 
 
 

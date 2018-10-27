@@ -3,7 +3,8 @@
 {% extends "base.html" %}
 {% block title %}Make a New Blog{% endblock %}
 {% block content %}<form action="/blog-create">
-<input type="text" name="content" placeholder="Write something here..." size="50" >
+<input type="text" name="content" placeholder="Write something here..." size="50" ><br><br>
+<input type="text" name="tags" placeholder="Tag your posts! Seperate your tags with commas(',')" size="25"><br>
 <input type="submit" value="Create blog">
 </form>
 {% endblock %}

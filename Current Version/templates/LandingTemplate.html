@@ -9,7 +9,7 @@
         <table>
             <td>
                 <form>
-                    <input type="search" placeholder="Search">
+                    <input type="hidden" placeholder="Search">
                 </form>
             </td>
         <td>
@@ -32,6 +32,11 @@
     </h1>
     <h3> {# make it look nice and cool :3 #}
         <i>{{ desc }}</i></h3>
+        {% if randPost %}<br><br><br><br><br><br><br><br><br><br>
+        Our featured post of the Day by {{ randPost[0] }}!<br><br>
+        {{ randPost[0] }}  {{ randPost[2] }}<br>
+        {{ randPost[1] }}<br>----------------------------
+        {% endif %}
     </body>
     </div>
 </html>

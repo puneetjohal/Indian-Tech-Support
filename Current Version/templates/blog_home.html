@@ -4,9 +4,19 @@
 <html>
 <head>
     <title>{{ title }}</title>
-    <form action="/make-blog">
-        <input type="submit" value="Make Blog">
-    </form>
+    <table>
+        <td>
+        <form action="/make-blog">
+            <input type="submit" value="Make Blog">
+        </form>
+        </td>
+        <td>
+            <form action="/search">
+                <input type="search" name="search" placeholder="Search for a blog..." size="35">
+                <input type="submit" value="Search">
+            </form>
+        </td>
+    </table>
         <div align="right">
     <form action="/logout">
         <input type="submit" value="Logout">
@@ -27,9 +37,20 @@
         <br>
     {% for item in content %}
         {% if item %}
+
             <tr>{{ item[0] }}   {{ item[2] }}<br>
                 {{ item[1] }}</tr><br>
-                -------------------<br><br>
+                -------------------
+                {% if user in item[3] %}
+                <tr>
+                <form action="/edit">
+                    <input type="hidden" name="content" value="{{ item[1] }}">
+                    <input type="hidden" name="time" value="{{ item[2] }}">
+                    <input type="submit" value="Edit blog">
+                </form>
+            </tr>
+            {% endif %}
+            <br><br>
         {% endif %}
     {% endfor %}
     </table>

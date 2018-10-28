@@ -9,7 +9,7 @@ DATABASE = "./Big_Daddy.db"
 @app.route('/')
 def home():
     if 'user' in session: #sessioning
-        return redirect(url_for('blogHome'))
+        return redirect(url_for('blogHome')) #if there is somebody logged in, then redirect them to hte home page
     db = sqlite3.connect(DATABASE)
     c = db.cursor()
     featured = []
@@ -17,10 +17,10 @@ def home():
         c.execute("SELECT * FROM blogs")
         featured = c.fetchall()
         if len(featured) > 0:
-            featured = choice(featured)
+            featured = choice(featured) #if blogs exist, then choose a blog to be the "featured blog"
     except Exception as e:
         print("table doesn't exist")
-        featured = ""
+        featured = "" # but if there aren't any blogs, then it returns an empty string
     return render_template("LandingTemplate.html",
                             Title = "Humblr",
                             heading = "Welcome to Humblr",
@@ -94,11 +94,11 @@ def blogHome():
     c = db.cursor()
     c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT, time_of_blog TEXT, tags TEXT)")
     #c.execute("INSERT INTO blogs VALUES(\"username\",\"asdasdasdasd\")")
-    c.execute("SELECT * FROM blogs WHERE users = {}".format('''"''' + session.get('user') + '''"'''))
+    c.execute("SELECT * FROM blogs WHERE users = {}".format('''"''' + session.get('user') + '''"''')) #since session.get('user') doesn't include the quotes, we put the quotes around it
     user_blogs = c.fetchall()
     ordered_blogs = []
     for i in range(len(user_blogs) - 1, -1, -1):
-        ordered_blogs.append(user_blogs[i])
+        ordered_blogs.append(user_blogs[i]) #adds blog in order
     user_blogs = ordered_blogs
     db.commit()
     db.close()
@@ -115,10 +115,10 @@ def create_blog():
     usr = session.get('user')
     tags = request.args.get('tags')
     content = request.args.get('content')
-    blogTime = time.asctime(time.localtime())
+    blogTime = time.asctime(time.localtime()) #to print the time
     tags = usr + "," + tags
     print(content)
-    c.execute("INSERT INTO blogs VALUES(\"{}\",\"{}\", \"{}\",\"{}\")".format(usr, content, blogTime, tags))
+    c.execute("INSERT INTO blogs VALUES(\"{}\",\"{}\", \"{}\",\"{}\")".format(usr, content, blogTime, tags)) #adds features to database
     db.commit()
     db.close()
     flash("Congratulations, you have made a new blog!\n")
@@ -134,13 +134,13 @@ def create_post():
 
 @app.route('/search')
 def search():
-    if 'user' not in session:
+    if 'user' not in session: #if not logged in
         return redirect(url_for('home'))
     db =sqlite3.connect(DATABASE)
     c = db.cursor()
     search_content = request.args.get('search')
     tags = search_content.split(",")
-    c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT, time_of_blog TEXT, tags TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS blogs(users TEXT, content TEXT, time_of_blog TEXT, tags TEXT)") #incase the table doesn't exist, make one
     c.execute("SELECT * FROM blogs")
     all_tags = c.fetchall()
     correct_tags = []
@@ -152,12 +152,12 @@ def search():
     if len(correct_tags) < 0:
         flash("Internal Sever Error")
     if len(correct_tags) == 0:
-        flash("No posts found :(")
+        flash("No posts found :(") #if there aren't any tags
     return render_template('blog_home.html', content = correct_tags, user = session.get('user'))
 
 @app.route('/edit')
 def update():
-    if 'user' not in session:
+    if 'user' not in session: #if not logged in
         return redirect(url_for('home'))
     #print(request.args.get('content'))
     content = request.args.get('content')
@@ -167,7 +167,7 @@ def update():
 
 @app.route('/edit-auth')
 def edit():
-    if 'user' not in session:
+    if 'user' not in session: #if not logged in
         return redirect(url_for('home'))
     db = sqlite3.connect(DATABASE)
     c = db.cursor()
@@ -175,16 +175,16 @@ def edit():
     searched_for_time = request.args.get('time')
     #print(request.args.get('content'))
     #print(searched_for_time)
-    c.execute("SELECT * FROM blogs WHERE time_of_blog=\"{}\"".format(searched_for_time))
+    c.execute("SELECT * FROM blogs WHERE time_of_blog=\"{}\"".format(searched_for_time)) #searching for the time of blog
     #test = c.fetchall()
     #print("this is the whole thing\n")
     #print(test)
     #print(time.asctime(time.localtime()))
-    c.execute("UPDATE blogs SET content =\"{}\", time_of_blog =\"{}\" WHERE time_of_blog=\"{}\"".format(content, time.asctime(time.localtime()), searched_for_time))
+    c.execute("UPDATE blogs SET content =\"{}\", time_of_blog =\"{}\" WHERE time_of_blog=\"{}\"".format(content, time.asctime(time.localtime()), searched_for_time)) #updates content and time
     #print(searched_for_time)
     db.commit()
     db.close()
-    flash("Everything's looking good! Blog has been updated!")
+    flash("Everything's looking good! Blog has been updated!") #once editing is  completed 
     return redirect(url_for('blogHome'))
 
 

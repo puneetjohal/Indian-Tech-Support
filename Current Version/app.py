@@ -124,14 +124,6 @@ def create_blog():
     flash("Congratulations, you have made a new blog!\n")
     return redirect(url_for('blogHome'))
 
-@app.route('/make-post')
-def make_post():
-    return render_template("new-post.html")
-
-@app.route('/new-post')
-def create_post():
-    return redirect(url_for('blogHome'))
-
 @app.route('/search')
 def search():
     if 'user' not in session: #if not logged in
@@ -184,7 +176,7 @@ def edit():
     #print(searched_for_time)
     db.commit()
     db.close()
-    flash("Everything's looking good! Blog has been updated!") #once editing is  completed 
+    flash("Everything's looking good! Blog has been updated!") #once editing is  completed
     return redirect(url_for('blogHome'))
 
 

@@ -48,20 +48,22 @@
     {% for item in content %}
         {% if item %}
 <!-- prints out the content, name, date, and then content of the blogs -->
-            <tr>{{ item[0] }}   {{ item[2] }}<br>
-                {{ item[1] }}</tr><br>
-                -------------------<br>
+            <tr><i>{{ item[0] }}</i>&emsp;{{ item[2] }}<br>
+                {{ item[1] }}<br>
+                <strong>Tagged as: {{item[3]}}</strong></tr><br>
                 {% if user in item[3] %}
                 <tr>
                 <form action="/edit">
                     <input type="hidden" name="content" value="{{ item[1] }}">
                     <input type="hidden" name="time" value="{{ item[2] }}">
+                    <input type="hidden" name="tag" value="{{ item[3] }}">
                     <input type="submit" value="Edit post">
                 </form>
             </tr>
             {% endif %}
             <br><br>
         {% endif %}
+        -------------------<br>
     {% endfor %}
     </table>
     </div>

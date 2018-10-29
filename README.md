@@ -22,3 +22,16 @@ pip install flask
 * Go into our project repo and run it using:```python app.py```
 * Open a browser and see the website at: http://127.0.0.1:5000/
 * Once you're finished, disable your virtual environment using:```deactivate```
+
+### Extra Modules and Libraries
+#### Datetime
+* Documentation: <https://docs.python.org/3/library/time.html>
+* This module provides users with access to time related functions that can track date and time in a variety of different formats.
+* We deemed it necessary in order to display the most recent time of post editing on blogs.
+* We used the time module functions for keeping track of when posts were created or edited, and displayed the most recent of those dates and times along with the post content on the blogs.
+
+#### Random
+* Documentation: <https://docs.python.org/3/library/random.html>
+* This module provides users with access to functions related to generating psuedo-random numbers.
+* We deemed it necessary in order to display a random "post of the day" on our landing page.
+* We used the random module functions for selecting a random post made by any user from our database, and then displaying its contents, author, and last edit time on the landing page.

@@ -141,7 +141,12 @@ ShafaliG -- 2018-10-28 1:00
 --------------------------------------------------------------
 Added comments on all files 
 ==============================================================
-fristL -- TIMESTAMP
+
+PuneetJ -- 2018-10-28 9:00
 --------------------------------------------------------------
-<Thing fristL did.> //Leave this at the end of the devlog
+Cleared discrepency between the words "blog" and "post" being used synonymously. Although some of our html templates and python functions still have misleading names, all forms and UI components have been updated to show the correct labels. Deleted unnecessary html templates that did not serve a purpose in the project. Added options to cancel or go home to pages that were lacking them to ensure that users would easily be able to navigate back to their own blog.
 ==============================================================
+
+MID-DEVELOPMENT DESIGN CHANGES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2018-10-28: We decided not to use cookies to maintain consistency with our previous code. We decided to make the search functionality available only the users that were logged in, while users that were not logged in would only be able to see the random "post of the day" on the landing page. We added tags to individual posts instead of whole blogs. We decided to limit users to just one blog because we couldn't think of a relatively quick and efficient way of generating new routes for multiple blogs for each user.

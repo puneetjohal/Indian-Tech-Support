@@ -122,11 +122,25 @@ PuneetJ -- 2018-10-25 1:16
 Added blog template to be used for blogs owned by user.
 ==============================================================
 
+ShafaliG -- 2018-10-25 1:20
+--------------------------------------------------------------
+Went through the database information, fixed bugs in retrieving information. 
+==============================================================
+
+ShafaliG -- 2018-10-25 4:15
+--------------------------------------------------------------
+Started to create plan of how to update password
+==============================================================
+
 PuneetJ -- 2018-10-26 7:11
 --------------------------------------------------------------
 Added template for blogs of other users, added template for new post submition, started post creation.
 ==============================================================
 
+ShafaliG -- 2018-10-28 1:00
+--------------------------------------------------------------
+Added comments on all files 
+==============================================================
 fristL -- TIMESTAMP
 --------------------------------------------------------------
 <Thing fristL did.> //Leave this at the end of the devlog

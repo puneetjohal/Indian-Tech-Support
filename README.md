@@ -24,11 +24,11 @@ pip install flask
 * Once you're finished, disable your virtual environment using:```deactivate```
 
 ### Extra Modules and Libraries
-#### Datetime
-* Documentation: <https://docs.python.org/3/library/datetime.html#module-datetime>
+#### Time
+* Documentation: <https://docs.python.org/3/library/time.html>
 * This module provides users with access to time related functions that can track date and time in a variety of different formats.
 * We deemed it necessary in order to display the most recent date and time of post editing on blogs.
-* We used the datetime module functions for keeping track of when posts were created or edited, and displayed the most recent of those dates and times along with the post content on the blogs.
+* We used the time module functions for keeping track of when posts were created or edited, and displayed the most recent of those dates and times along with the post content on the blogs.
 
 #### Random
 * Documentation: <https://docs.python.org/3/library/random.html>

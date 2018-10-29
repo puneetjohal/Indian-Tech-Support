@@ -5,11 +5,13 @@
     <head>
         <style>
         </style>
+        <!-- Title is Humbler  -->
         <title>{{ Title }}</title>
         <table>
             <td>
+              <!-- Forms for either logging in or registering for an account -->
                 <form>
-                    <input type="search" placeholder="Search">
+                    <input type="hidden" placeholder="Search">
                 </form>
             </td>
         <td>
@@ -30,8 +32,15 @@
     <h1> {# All this mess to make it look like Facebook #}
         <br><br>{{ heading }}
     </h1>
+    <!-- Featured post of the day - picks a random post  -->
     <h3> {# make it look nice and cool :3 #}
         <i>{{ desc }}</i></h3>
+        {% if randPost %}<br><br><br><br><br><br><br><br><br><br>
+        Our featured post of the Day by <strong>{{ randPost[0] }}</strong>!<br><br>
+        <!-- Prints out name, time, and content of post -->
+        {{ randPost[0] }}  {{ randPost[2] }}<br>
+        {{ randPost[1] }}<br>----------------------------
+        {% endif %}
     </body>
     </div>
 </html>

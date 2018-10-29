@@ -4,14 +4,34 @@
 <html>
 <head>
     <title>{{ title }}</title>
-    <form action="/make-blog">
-        <input type="submit" value="Make Blog">
-    </form>
-        <div align="right">
-    <form action="/logout">
+    <table>
+        <td>
+          <!-- home button -->
+          <form action="/home">
+            <input type="submit" value="Home">
+          </form>
+        </td>
+        <td>
+          <!-- make a blog post -->
+        <form action="/make-blog">
+            <input type="submit" value="Make Post">
+        </form>
+        </td>
+        <td>
+          <!-- search for a blog -->
+            <form action="/search">
+                <input type="search" name="search" placeholder="Search for a post..." size="35">
+                <input type="submit" value="Search">
+            </form>
+        </td>
+    </table>
+
+    <div align="right">
+      <form action="/logout">
         <input type="submit" value="Logout">
-    </form>
+      </form>
     </div>
+
     <div align="center">
     {% set msg = get_flashed_messages() %}
     {% for each in msg %}
@@ -27,10 +47,23 @@
         <br>
     {% for item in content %}
         {% if item %}
-            <tr>{{ item[0] }}   {{ item[2] }}<br>
-                {{ item[1] }}</tr><br>
-                -------------------<br><br>
+<!-- prints out the content, name, date, and then content of the blogs -->
+            <tr><i>{{ item[0] }}</i>&emsp;{{ item[2] }}<br>
+                {{ item[1] }}<br>
+                <strong>Tagged as: {{item[3]}}</strong></tr><br>
+                {% if user in item[3] %}
+                <tr>
+                <form action="/edit">
+                    <input type="hidden" name="content" value="{{ item[1] }}">
+                    <input type="hidden" name="time" value="{{ item[2] }}">
+                    <input type="hidden" name="tag" value="{{ item[3] }}">
+                    <input type="submit" value="Edit post">
+                </form>
+            </tr>
+            {% endif %}
+            <br><br>
         {% endif %}
+        -------------------<br>
     {% endfor %}
     </table>
     </div>

@@ -1,3 +1,5 @@
+<!-- template for register form used to create a new account -->
+
 {% extends 'base.html' %}
 
 {% block title %}
@@ -16,6 +18,7 @@ Register on Humblr
     {% endfor %}
     <div align="center">
         <form action="/register-auth" method="POST">
+          <!-- change password by searching for username in database. Then confirming the password.  -->
             <input type="text" name="username" placeholder="Username"><br>
             <input type="password" name="password" placeholder="Password"><br>
             <input type="password" name="confirm" placeholder="Retype your password"><br><br>
@@ -29,7 +32,7 @@ Register on Humblr
                 </form>
                 </td>
             </table>
-            
+
     </div>
 {% endblock content %}
 {% block footer %}

@@ -1,26 +1,12 @@
 <!-- template for landing page -->
 {% extends "base.html" %}
 
+{% block toolbar %}
+<a class="navbar-brand" style="margin-top:5px" href="/login">Login</a>
+<a class="navbar-brand" style="margin-top:5px" href="/register">Register</a>
+{% endblock %}
+
 {% block header %}
-<table>
-    <td>
-      <!-- Forms for either logging in or registering for an account -->
-        <form>
-            <input type="hidden" placeholder="Search">
-        </form>
-    </td>
-<td>
-    <form action="/login">
-        <input type="submit" value="Login">
-    </form>
-</td>
-<td>
-    <form action="/register">
-        <input type="submit" value="Register">
-    </form>
-</td>
-</table>
-</form>
 {% endblock %}
 {% block title %}{{ Title }}{% endblock %}
 {% block content %}

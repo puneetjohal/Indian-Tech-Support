@@ -6,6 +6,11 @@
 Login to Humblr
 {% endblock %}
 
+{% block toolbar %}
+<a class="navbar-brand" style="margin-top:5px" href="/login">Login</a>
+<a class="navbar-brand" style="margin-top:5px" href="/register">Register</a>
+{% endblock %}
+
 {% block content %}
       <div align="center">
       {% set msgs = get_flashed_messages() %}

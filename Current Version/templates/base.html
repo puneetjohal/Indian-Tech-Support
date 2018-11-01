@@ -29,6 +29,7 @@
   				font-size: 40px;
   				color: #007EA7;
         }
+
   </style>
   <nav class="navbar" style="background-color:rgb(10,10,10);">
     <a class="navbar-brand" style="margin-bottom:10px" href="/"><img class="form-inline" src="static/images/icon.png"></a>
@@ -47,9 +48,8 @@
 <body>
   {% block content %}
   {% endblock %}
-
-  {% block footer %}
-    <br> {# wrong copyright and credits #}
-  {% endblock %}
 </body>
+<footer style="position:absolute;bottom:0;width:100%">
+    <div class="footer-copyright text-center py-3" style="color:black;">&copy; 2018 Copyright: Humblr</div>
+</footer>
 </html>

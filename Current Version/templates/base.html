@@ -3,14 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" />
   <title>{% block title %}{% endblock %}</title>
   <style>
         * {
-				font-family: "Open Sans";
-				font-size: 15px;
-                max-width: 100%;
+				    font-family: "Open Sans";
+				    font-size: 15px;
 			  }
         .button {
                 color: white;
@@ -29,9 +30,21 @@
   				color: #007EA7;
         }
   </style>
+  <nav class="navbar" style="background-color:rgb(10,10,10);">
+    <a class="navbar-brand" style="margin-bottom:10px" href="/"><img class="form-inline" src="static/images/icon.png"></a>
+    {% block toolbar %}
+    <a class="navbar-brand" style="margin-top:5px" href="/home">Home</a>
+    <a class="navbar-brand" style="margin-top:5px" href="/make-blog">Make Post</a>
+    <a class="navbar-brand" style="margin-top:5px" href="/logout">Log Out</a>
+    <form action = "/search" style="margin-top:13px;" class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search for a post..." name="search">
+    </form>
+    {% endblock %}
+  </nav>
+</div>
+  <!--
   <div class="container-fluid" style="background-color:rgb(10,10,10);color:#FFF;">
     <div class="row" style="padding:5px;">
-      {% block toolbar %}
       <div class="col-md-1"><a href="/home" style='font-size:13px;'>Home</a></div>
       <div class="col-md-1"><a href="/make-blog" style='font-size:13px;'>Make Post</a></div>
       <div class="col-md-2">
@@ -42,9 +55,9 @@
       <div class="col-md-1">
         <a href="/make-blog" style='font-size:13px;'>Logout</a>
       </div>
-      {% endblock %}
     </div>
   </div>
+-->
   {% block header %}{% endblock %}
 </head>
 <body>

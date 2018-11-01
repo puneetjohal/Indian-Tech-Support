@@ -3,7 +3,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>{% block title %}{% endblock %}</title>
+  <style>
+        * {
+				font-family: "Open Sans";
+				font-size: 15px;
+                max-width: 100%;
+			  }
+        .button {
+                color: white;
+                border: none;
+                padding: 10px 25px;
+                background-color: #007EA7;
+        }
+
+        a, a:hover, a:visited, a:active, a:link {
+  				color: #FFF;
+  				text-decoration: none;
+  			}
+
+        h1	{
+  				font-size: 40px;
+  				color: #007EA7;
+        }
+  </style>
+  <div class="container-fluid" style="background-color:rgb(10,10,10);color:#FFF;">
+    <div class="row" style="padding:5px;">
+      {% block toolbar %}
+      <div class="col-md-1"><a href="/home" style='font-size:13px;'>Home</a></div>
+      <div class="col-md-1"><a href="/make-blog" style='font-size:13px;'>Make Post</a></div>
+      <div class="col-md-2">
+        <form action = "/search">
+          <input style="color:black;font-size:13px;" type="search" name="search" placeholder="Search for a post...">
+        </form>
+      </div>
+      <div class="col-md-1">
+        <a href="/make-blog" style='font-size:13px;'>Logout</a>
+      </div>
+      {% endblock %}
+    </div>
+  </div>
+  {% block header %}{% endblock %}
 </head>
 <body>
   {% block content %}

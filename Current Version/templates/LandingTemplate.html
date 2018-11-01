@@ -1,33 +1,29 @@
 <!-- template for landing page -->
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <style>
-        </style>
-        <!-- Title is Humbler  -->
-        <title>{{ Title }}</title>
-        <table>
-            <td>
-              <!-- Forms for either logging in or registering for an account -->
-                <form>
-                    <input type="hidden" placeholder="Search">
-                </form>
-            </td>
-        <td>
-            <form action="/login">
-                <input type="submit" value="Login">
-            </form>
-        </td>
-        <td>
-            <form action="/register">
-                <input type="submit" value="Register">
-            </form>
-        </td>
-    </table>
+{% block header %}
+<table>
+    <td>
+      <!-- Forms for either logging in or registering for an account -->
+        <form>
+            <input type="hidden" placeholder="Search">
+        </form>
+    </td>
+<td>
+    <form action="/login">
+        <input type="submit" value="Login">
     </form>
-    </head>
-    <body>
+</td>
+<td>
+    <form action="/register">
+        <input type="submit" value="Register">
+    </form>
+</td>
+</table>
+</form>
+{% endblock %}
+{% block title %}{{ Title }}{% endblock %}
+{% block content %}
     <div align="center">
     <h1> {# All this mess to make it look like Facebook #}
         <br><br>{{ heading }}
@@ -41,6 +37,5 @@
         {{ randPost[0] }}  {{ randPost[2] }}<br>
         {{ randPost[1] }}<br>----------------------------
         {% endif %}
-    </body>
     </div>
-</html>
+{% endblock %}

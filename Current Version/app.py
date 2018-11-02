@@ -122,7 +122,7 @@ def blogHome():
     db.commit()
     db.close()
 
-    return render_template("blog_home.html", title = session.get('user'), content = user_blogs, user = session.get('user'))
+    return render_template("blog_home.html", pageHeading = "Homepage", title = session.get('user'), content = user_blogs, user = session.get('user'))
 
 @app.route('/make-blog')
 def new_blog_page():
@@ -192,7 +192,7 @@ def search():
     if len(correct_tags) == 0:
         flash("No posts found :(") #if there aren't any tags
 
-    return render_template('blog_home.html', content = correct_tags, user = session.get('user'))
+    return render_template('blog_home.html', pageHeading = "Search Results", content = correct_tags, user = session.get('user'))
 
 @app.route('/edit')
 def update():

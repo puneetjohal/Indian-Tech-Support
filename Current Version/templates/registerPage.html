@@ -21,23 +21,15 @@ Register on Humblr
         </div>
 	    {% endif %}
     {% endfor %}
-    <div align="center">
+    <div align="center" style="transform: translateY(50%)">
         <form action="/register-auth" method="POST">
           <!-- change password by searching for username in database. Then confirming the password.  -->
-            <input type="text" name="username" placeholder="Username"><br>
-            <input type="password" name="password" placeholder="Password"><br>
+            <input type="text" name="username" placeholder="Username"><br><br>
+            <input type="password" name="password" placeholder="Password"><br><br>
             <input type="password" name="confirm" placeholder="Retype your password"><br><br>
-            <table>
-                <td>
-                <input type="submit" value="Register"></form>
-                </td>
-                <td>
-                <form action="/">
-                    <input type="submit" value="Go Back">
-                </form>
-                </td>
-            </table>
-
+            <a href="/auth">
+              <center><button>Register</button></center>
+            </a>
     </div>
 {% endblock content %}
 {% block footer %}

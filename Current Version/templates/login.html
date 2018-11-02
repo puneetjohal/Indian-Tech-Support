@@ -12,7 +12,7 @@ Login to Humblr
 {% endblock %}
 
 {% block content %}
-      <div align="center">
+      <div align="center" style="transform: translateY(50%)">
       {% set msgs = get_flashed_messages() %}
       {% for each in msgs %}
       {# Checks if an error exists and displays an error if it does #}
@@ -22,16 +22,11 @@ Login to Humblr
       {% endfor %}
       <br><br>
       <form action="/auth" method="POST">
-          <input type="text" name="username" placeholder="Username">
+          <input type="text" name="username" placeholder="Username"><br><br>
           <input type="password" name="password" placeholder="Password"><br><br>
-      <table>
-        <td>
-          <input type="submit" value="Login">
-        </form></td>
-        <td><form action="/">
-          <input type="submit" value="Go back">
-        </form></td>
-      </table><br><br>
+          <a href="/auth">
+            <center><button>Login</button></center>
+          </a>
       </div>
 {% endblock %}
 

@@ -13,11 +13,14 @@
 				    font-family: "Open Sans";
 				    font-size: 15px;
 			  }
-        .button {
-                color: white;
-                border: none;
-                padding: 10px 25px;
-                background-color: #007EA7;
+        button {
+            border: none;
+            padding: 10px 25px;
+            background-color: #007EA7;
+        }
+
+        button:hover {
+            background-color: #0086b3;
         }
 
         a, a:hover, a:visited, a:active, a:link {
@@ -34,7 +37,7 @@
   <nav class="navbar" style="background-color:rgb(10,10,10);">
     <a class="navbar-brand" style="margin-bottom:10px" href="/"><img class="form-inline" src="static/images/icon.png"></a>
     {% block toolbar %}
-    <a class="navbar-brand" style="margin-top:5px" href="/home">Home</a>
+    <a class="navbar-brand" style="margin-top:5px" href="/">Home</a>
     <a class="navbar-brand" style="margin-top:5px" href="/make-blog">Make Post</a>
     <a class="navbar-brand" style="margin-top:5px" href="/logout">Log Out</a>
     <form action = "/search" style="margin-top:13px;" class="form-inline">

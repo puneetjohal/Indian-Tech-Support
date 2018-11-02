@@ -3,24 +3,36 @@
 {% extends "base.html" %}
 
 {% block title %}
-  Make a New Blog
+Make a New Blog
 {% endblock %}
 
 {% block content %}
-  <center style="transform: translateY(30%)">
-    <h1>
-      New Post
-    </h1>
-    <form action="/blog-create">
-      <br>
-      Content<br>
-      <textarea name = "content" placeholder="Write something here..." rows = "5" cols = "50"></textarea>
-      <br><br>Tags<br>
-      <textarea name = "tags" placeholder="Tag your posts! Seperate tags with commas(',')" rows = "1" cols = "40"></textarea>
-      <input type="hidden" name="time" value="{{ post }}">
-      <br>
-      <br>
-      <center><a href="/edit-auth"><button>Create Post</button></a></center>
-    </form>
-  </center>
+<style>
+  form {
+  font-size: 18px;
+  }
+  textarea{
+  border-radius: 5px;
+  border: 2px solid lightgray;
+  padding: 5px;
+  resize: none;
+  }
+</style>
+
+<center style="transform: translateY(20%)">
+  <h1>
+    New Post
+  </h1>
+  <form action="/blog-create">
+    <br>
+    Content<br>
+    <textarea name = "content" placeholder="Write something here..." rows = "5" cols = "50"></textarea>
+    <br><br>Tags<br>
+    <textarea name = "tags" placeholder="Tag your posts! Seperate tags with commas(',')" rows = "1" cols = "40"></textarea>
+    <input type="hidden" name="time" value="{{ post }}">
+    <br>
+    <br>
+    <center><a href="/edit-auth"><button>Create Post</button></a></center>
+  </form>
+</center>
 {% endblock %}

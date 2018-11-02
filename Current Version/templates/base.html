@@ -2,58 +2,59 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" />
-  <title>{% block title %}{% endblock %}</title>
-  <style>
-        html, body {
-          height: 93%;
-          margin: 0;
-        }
-        .wrapper {
-          min-height: 100%;
-        }
-        * {
-				    font-family: "Open Sans";
-				    font-size: 15px;
-			  }
-        button {
-            border: none;
-            padding: 10px 25px;
-            background-color: #007EA7;
-        }
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" />
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+      html, body {
+      height: 93%;
+      margin: 0;
+      }
+      .wrapper {
+      min-height: 100%;
+      }
+      * {
+      font-family: "Open Sans";
+      font-size: 16px;
+      }
+      button {
+      border: none;
+      padding: 10px 25px;
+      background-color: #007EA7;
+      }
 
-        button:hover {
-            background-color: #0086b3;
-        }
+      button:hover {
+      background-color: #0086b3;
+      }
 
-        a, a:hover, a:visited, a:active, a:link {
-  				color: #FFF;
-  				text-decoration: none;
-  			}
+      a, a:hover, a:visited, a:active, a:link {
+      color: #FFF;
+      text-decoration: none;
+      }
 
-        h1	{
-  				font-size: 40px;
-  				color: #007EA7;
-        }
+      h1	{
+      font-size: 55px;
+      color: #007EA7;
+      font-weight: bold;
+      }
 
-  </style>
-  <nav class="navbar" style="background-color:rgb(10,10,10);">
-    <a class="navbar-brand" style="margin-bottom:10px" href="/"><img class="form-inline" src="static/images/icon.png"></a>
-    {% block toolbar %}
-    <a class="navbar-brand" style="margin-top:5px" href="/">Home</a>
-    <a class="navbar-brand" style="margin-top:5px" href="/make-blog">Make Post</a>
-    <a class="navbar-brand" style="margin-top:5px" href="/logout">Log Out</a>
-    <form action = "/search" style="margin-top:13px;" class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search for a post..." name="search">
-    </form>
-    {% endblock %}
-  </nav>
+    </style>
+    <nav class="navbar" style="background-color:rgb(10,10,10);">
+      <a class="navbar-brand" style="margin-bottom:10px" href="/"><img class="form-inline" src="static/images/icon.png"></a>
+      {% block toolbar %}
+      <a class="navbar-brand" style="margin-top:5px" href="/">Home</a>
+      <a class="navbar-brand" style="margin-top:5px" href="/make-blog">Make Post</a>
+      <a class="navbar-brand" style="margin-top:5px" href="/logout">Log Out</a>
+      <form action = "/search" style="margin-top:13px;" class="form-inline">
+	<input class="form-control mr-sm-2" type="search" placeholder="Search for a post..." name="search">
+      </form>
+      {% endblock %}
+    </nav>
 </div>
-  {% block header %}{% endblock %}
+{% block header %}{% endblock %}
 </head>
 <body>
   <div class="wrapper">
@@ -62,6 +63,6 @@
   </div>
 </body>
 <footer style="position:sticky;bottom:0;width:100%">
-    <div class="footer-copyright text-center py-3" style="color:black;"><div style="background:white;">&copy; 2018 Copyright: Humblr</div></div>
+  <div class="footer-copyright text-center py-3" style="color:black;"><div style="background:white;">&copy; 2018 Copyright: Humblr</div></div>
 </footer>
 </html>

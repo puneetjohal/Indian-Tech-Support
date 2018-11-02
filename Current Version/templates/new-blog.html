@@ -7,15 +7,22 @@
 {% endblock %}
 
 {% block content %}
-  <form action="/blog-create">
-    <!-- type n content for blog post -->
-    <input type="text" name="content" placeholder="Write something here..." size="50" ><br><br>
-    <!-- create tags to help search for similar posts with same tags -->
-    <input type="text" name="tags" placeholder="Tag your posts! Seperate your tags with commas(',')" size="25"><br><br>
-    <input type="submit" value="Create post"><br><br>
-  </form>
-
-  <form action="/home">
-    <input type="submit" value="Cancel">
-  </form>
+  <center style="transform: translateY(30%)">
+    <h1>
+      New Post
+    </h1>
+    <form action="/blog-create">
+      <br>
+      Content<br>
+      <textarea name = "content" placeholder="Write something here..." rows = "5" cols = "50"></textarea>
+      <br><br>Tags<br>
+      <textarea name = "tags" placeholder="Tag your posts! Seperate tags with commas(',')" rows = "1" cols = "40"></textarea>
+      <input type="hidden" name="time" value="{{ post }}">
+      <br>
+      <br>
+      <a href="/edit-auth">
+        <center><button>Create Post</button></center>
+      </a>
+    </form>
+  </center>
 {% endblock %}

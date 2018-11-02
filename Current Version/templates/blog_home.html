@@ -1,40 +1,52 @@
-<!-- template for user's home page w/ link to their blgos -->
+<!-- template for user's home page w/ link to their blogs -->
 {% extends "base.html" %}
 {% block header %}
-    <div align="center">
-    {% set msg = get_flashed_messages() %}
-    {% for each in msg %}
-        {% if each %}
-            <strong>{{ each }}</strong>
-        {% endif %}
-    {% endfor %}
-    </div>
-    {% endblock %}
+<div align="center">
+  {% set msg = get_flashed_messages() %}
+  {% for each in msg %}
+  {% if each %}
+  <strong>{{ each }}</strong>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endblock %}
 {% block content %}
-    <div align="center">
-    <table>
-        <br>
+
+<style>
+  h1 {
+  text-align: center;
+  font-size: 40px;
+  font-family: "Open Sans";
+  color: #007EA7;
+  {
+</style>
+
+<h1> Homepage </h1>
+  <div align="center">
+    <~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~><br>
+  <table>
+    <br>
     {% for item in content %}
-        {% if item %}
-<!-- prints out the content, name, date, and then content of the blogs -->
-            <tr><i>{{ item[0] }}</i>&emsp;{{ item[2] }}<br>
-                {{ item[1] }}<br>
-                <strong>Tagged as: {{item[3]}}</strong></tr><br>
-                {% if user in item[3] %}
-                <tr>
-                <form action="/edit">
-                    <input type="hidden" name="content" value="{{ item[1] }}">
-                    <input type="hidden" name="time" value="{{ item[2] }}">
-                    <input type="hidden" name="tag" value="{{ item[3] }}">
-                    <input type="submit" value="Edit post">
-                </form>
-            </tr>
-            {% endif %}
-            <br><br>
-        {% endif %}
-        -------------------<br>
-    {% endfor %}
-    </table>
-    </div>
+    {% if item %}
+    <!-- prints out the content, name, date, and then content of the blogs -->
+    <tr><i>{{ item[0] }}</i>&emsp;{{ item[2] }}<br><br>
+      {{ item[1] }}<br><br>
+      <strong>Tagged as: {{item[3]}}</strong></tr><br>
+    {% if user in item[3] %}
+    <tr>
+      <form action="/edit">
+        <input type="hidden" name="content" value="{{ item[1] }}">
+        <input type="hidden" name="time" value="{{ item[2] }}">
+        <input type="hidden" name="tag" value="{{ item[3] }}"><br>
+        <input type="submit" value="Edit post">
+      </form>
+    </tr>
+    {% endif %}
+    <br><br>
+    {% endif %}
+    <~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~><br><br>
+      {% endfor %}
+  </table>
+</div>
 {% endblock %}
 {% block title %}{{title}}{% endblock %}

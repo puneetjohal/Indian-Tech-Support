@@ -1,0 +1,37 @@
+<!-- HTML TEMPLATE for editing blogs  -->
+{% extends "base.html" %}
+{% block title %}Edit Blog{% endblock %}
+{% block content %}
+<style>
+  h1 {
+  text-align: center;
+  font-size: 40px;
+  font-family: "Open Sans";
+  color: #007EA7;
+  }
+  form {
+  text-align: center;
+  font-size: 18px;
+  }
+  textarea{
+  border-radius: 5px;
+  border: 2px solid lightgray;
+  padding-top: 5px;
+  resize: none;
+  }
+</style>
+<h1>
+  Edit Post
+</h1>
+<form action="/edit-auth">
+  <br>
+  Content<br>
+  <textarea name = "content" placeholder="Edit your post..." rows = "5" cols = "50"> {{content}} </textarea>
+  <br><br>Tags<br>
+  <textarea name = "tags" placeholder="Edit your post..." rows = "1" cols = "40"> {{tags}} </textarea>
+  <input type="hidden" name="time" value="{{ post }}">
+  <br>
+  <input type="submit" value="Submit Edit">
+
+</form>
+{% endblock %}

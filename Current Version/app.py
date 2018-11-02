@@ -25,7 +25,7 @@ def home():
         featured = "" # but if there aren't any blogs, then it returns an empty string
     return render_template("LandingTemplate.html",
                             Title = "Humblr",
-                            heading = "Welcome to Humblr",
+                            heading = "Humblr",
                             desc = "Get Humbled",
                             randPost = featured)
 
@@ -49,7 +49,7 @@ def register():
 
 @app.route('/register-auth', methods=["POST"])
 def regis_auth(): #check if registration is correctly done
-    '''Authenticates the registration info. Checks to see if the given data from the forms is already in the table and sends user to the login page 
+    '''Authenticates the registration info. Checks to see if the given data from the forms is already in the table and sends user to the login page
     if everything checks out. Else, reloads registration page and flashes message corresponding to the error'''
 
     db = sqlite3.connect(DATABASE)
@@ -113,7 +113,7 @@ def blogHome():
     #c.execute("INSERT INTO blogs VALUES(\"username\",\"asdasdasdasd\")")
     c.execute("SELECT * FROM blogs WHERE users = {}".format('''"''' + session.get('user') + '''"''')) #since session.get('user') doesn't include the quotes, we put the quotes around it
     user_blogs = c.fetchall()
-    
+
     ordered_blogs = [] #list of blogs, but in reverse
     for i in range(len(user_blogs) - 1, -1, -1):
         ordered_blogs.append(user_blogs[i]) #adds blog in order
@@ -231,7 +231,7 @@ def edit():
     #print(searched_for_time)
     db.commit()
     db.close()
-    
+
     flash("Everything's looking good! Blog has been updated!") #once editing is  completed
     return redirect(url_for('blogHome'))
 

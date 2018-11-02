@@ -20,35 +20,34 @@
   color: #007EA7;
   {
 </style>
-
-<h1> Homepage </h1>
-  <div align="center">
-    <~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~><br>
-  <table>
-    <br>
-    {% for item in content %}
-    {% if item %}
-    <!-- prints out the content, name, date, and then content of the blogs -->
-    <tr><i>{{ item[0] }}</i>&emsp;{{ item[2] }}<br><br>
-      {{ item[1] }}<br><br>
-      <strong>Tagged as: {{item[3]}}</strong></tr><br>
-    {% if user in item[3] %}
-    <tr>
-      <form action="/edit">
-        <input type="hidden" name="content" value="{{ item[1] }}">
-        <input type="hidden" name="time" value="{{ item[2] }}">
-        <input type="hidden" name="tag" value="{{ item[3] }}"><br>
-        <a href="/edit">
-          <center><button>Edit Post</button></center>
-        </a>
-      </form>
-    </tr>
-    {% endif %}
-    <br><br>
-    {% endif %}
-    <~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~><br><br>
-      {% endfor %}
-  </table>
-</div>
+  <h1> Homepage </h1>
+    <div align="center">
+      <~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~><br>
+    <table>
+      <br>
+      {% for item in content %}
+      {% if item %}
+      <!-- prints out the content, name, date, and then content of the blogs -->
+      <tr><i>{{ item[0] }}</i>&emsp;{{ item[2] }}<br><br>
+        {{ item[1] }}<br><br>
+        <strong>Tagged as: {{item[3]}}</strong></tr><br>
+      {% if user in item[3] %}
+      <tr>
+        <form action="/edit">
+          <input type="hidden" name="content" value="{{ item[1] }}">
+          <input type="hidden" name="time" value="{{ item[2] }}">
+          <input type="hidden" name="tag" value="{{ item[3] }}"><br>
+          <a href="/edit">
+            <center><button>Edit Post</button></center>
+          </a>
+        </form>
+      </tr>
+      {% endif %}
+      <br><br>
+      {% endif %}
+      <~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~><br><br>
+        {% endfor %}
+    </table>
+    </div>
 {% endblock %}
 {% block title %}{{title}}{% endblock %}

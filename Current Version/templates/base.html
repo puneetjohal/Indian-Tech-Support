@@ -9,6 +9,13 @@
   <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" />
   <title>{% block title %}{% endblock %}</title>
   <style>
+        html, body {
+          height: 93%;
+          margin: 0;
+        }
+        .wrapper {
+          min-height: 100%;
+        }
         * {
 				    font-family: "Open Sans";
 				    font-size: 15px;
@@ -49,8 +56,10 @@
   {% block header %}{% endblock %}
 </head>
 <body>
-  {% block content %}
-  {% endblock %}
+  <div class="wrapper">
+    {% block content %}
+    {% endblock %}
+  </div>
 </body>
 <footer style="position:sticky;bottom:0;width:100%">
     <div class="footer-copyright text-center py-3" style="color:black;"><div style="background:white;">&copy; 2018 Copyright: Humblr</div></div>

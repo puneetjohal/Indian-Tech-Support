@@ -1,46 +1,27 @@
 <!-- template for landing page -->
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <style>
-        </style>
-        <!-- Title is Humbler  -->
-        <title>{{ Title }}</title>
-        <table>
-            <td>
-              <!-- Forms for either logging in or registering for an account -->
-                <form>
-                    <input type="hidden" placeholder="Search">
-                </form>
-            </td>
-        <td>
-            <form action="/login">
-                <input type="submit" value="Login">
-            </form>
-        </td>
-        <td>
-            <form action="/register">
-                <input type="submit" value="Register">
-            </form>
-        </td>
-    </table>
-    </form>
-    </head>
-    <body>
+{% block toolbar %}
+<a class="navbar-brand" style="margin-top:5px" href="/login">Login</a>
+<a class="navbar-brand" style="margin-top:5px" href="/register">Register</a>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+{% block title %}{{ Title }}{% endblock %}
+{% block content %}
     <div align="center">
-    <h1> {# All this mess to make it look like Facebook #}
-        <br><br>{{ heading }}
+    <h1 style='font-family: "Russo One"; font-size: 80px;'> {# All this mess to make it look like Facebook #}
+        <br>{{ heading }}
     </h1>
     <!-- Featured post of the day - picks a random post  -->
-    <h3> {# make it look nice and cool :3 #}
-        <i>{{ desc }}</i></h3>
-        {% if randPost %}<br><br><br><br><br><br><br><br><br><br>
+    <div style='color:rgb(150,150,150)'> {# make it look nice and cool :3 #}
+      {{ desc }}</div>
+        {% if randPost %}<br><br><br>
         Our featured post of the Day by <strong>{{ randPost[0] }}</strong>!<br><br>
         <!-- Prints out name, time, and content of post -->
         {{ randPost[0] }}  {{ randPost[2] }}<br>
         {{ randPost[1] }}<br>----------------------------
         {% endif %}
-    </body>
     </div>
-</html>
+{% endblock %}

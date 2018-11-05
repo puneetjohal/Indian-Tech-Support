@@ -3,19 +3,36 @@
 {% extends "base.html" %}
 
 {% block title %}
-  Make a New Blog
+Make a New Blog
 {% endblock %}
 
 {% block content %}
-  <form action="/blog-create">
-    <!-- type n content for blog post -->
-    <input type="text" name="content" placeholder="Write something here..." size="50" ><br><br>
-    <!-- create tags to help search for similar posts with same tags -->
-    <input type="text" name="tags" placeholder="Tag your posts! Seperate your tags with commas(',')" size="25"><br><br>
-    <input type="submit" value="Create post"><br><br>
-  </form>
+<style>
+  form {
+  font-size: 18px;
+  }
+  textarea{
+  border-radius: 5px;
+  border: 2px solid lightgray;
+  padding: 5px;
+  resize: none;
+  }
+</style>
 
-  <form action="/home">
-    <input type="submit" value="Cancel">
+<center style="transform: translateY(20%)">
+  <h1>
+    New Post
+  </h1>
+  <form action="/blog-create">
+    <br>
+    Content<br>
+    <textarea name = "content" placeholder="Write something here..." rows = "5" cols = "50"></textarea>
+    <br><br>Tags<br>
+    <textarea name = "tags" placeholder="Tag your posts! Seperate tags with commas(',')" rows = "1" cols = "40"></textarea>
+    <input type="hidden" name="time" value="{{ post }}">
+    <br>
+    <br>
+    <center><a href="/edit-auth"><button>Create Post</button></a></center>
   </form>
+</center>
 {% endblock %}
